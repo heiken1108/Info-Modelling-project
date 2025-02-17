@@ -4,6 +4,7 @@ import CuisineModel from './models/Cuisine.js';
 
 const app = express();
 app.use(express.json());
+const port = 5001;
 
 //Connect to MongoDB
 mongoose
@@ -20,7 +21,6 @@ mongoose.connection.once('open', () => {
 //API Endpoints
 app.get('/api/cuisine', async (req, res) => {
 	try {
-		console.log('Fetching cuisins');
 		const cuisines = await CuisineModel.find({});
 		res.json(cuisines);
 	} catch (error) {
@@ -41,6 +41,6 @@ app.get('/api/cuisine/:cuisineId', async (req, res) => {
 	}
 });
 
-app.listen(5001, () => {
-	console.log('Server is running on port 5001');
+app.listen(port, () => {
+	console.log(`Server is running on port ${port}`);
 });
