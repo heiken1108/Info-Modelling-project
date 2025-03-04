@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Cuisine } from '../lib/types';
-import './MainPage.css'; // Import the CSS file
+import "../styling/MainPage.css"
 
 function MainPage() {
     const [cuisines, setCuisines] = useState<Cuisine[]>([]);

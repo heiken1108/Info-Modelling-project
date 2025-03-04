@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: row;
+}
+.information {
+    flex: 2; /* Adjusts the width of the information section */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+   
+}
+.image {
+    display: flex;
+    width: 50%;
+    height: 300px;
+    overflow: hidden;
+}
+
+header {
+    height: 100px;
+    text-align: left;
+    
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Cuisine } from '../lib/types';
+import "../styling/CuisinePage.css"
 
 function CuisinePage() {
 	const { cuisineId } = useParams<{ cuisineId: string }>();
@@ -63,17 +64,24 @@ function CuisinePage() {
 			<header>
 				<a href="/">Back</a>
 			</header>
-			<h1>Norwegian Cuisine</h1>
-			<p>
-				Some information about {cuisine.name} ({cuisine.translation}):
-			</p>
-			<p>{cuisine.description}</p>
-			{cuisine.image_url && (
-				<img src={cuisine.image_url} alt={cuisine.name} />
-			)}
-			<p>
-				Source: <a href={cuisine.source_url}>{cuisine.source_url}</a>
-			</p>
+			<div className= "container">
+				<div className = "image">
+				{cuisine.image_url && (
+					<img src={cuisine.image_url} alt={cuisine.name}/>
+				)}
+				</div>
+				<div className= "information">
+				<h1>{cuisine.name}</h1>
+				<p>
+					Some information about {cuisine.name} ({cuisine.translation}):
+				</p>
+				<p>{cuisine.description}</p>
+				
+				<p>
+					Source: <a href={cuisine.source_url}>{cuisine.source_url}</a>
+				</p>
+				</div>
+			</div>
 			<footer>
 				<div>
 					<a href={`/cuisine/${handleNewPageIndex(false)}`}>
