@@ -1,6 +1,8 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import CuisineModel from './models/Cuisine.js';
+import ItemModel from './models/Item.js';
+import NarrativeModel from './models/Narrative.js';
 
 const app = express();
 app.use(express.json());
@@ -36,6 +38,42 @@ app.get('/api/cuisine/:cuisineId', async (req, res) => {
 		if (!cuisine)
 			return res.status(404).json({ message: 'Cuisine not found' });
 		res.json(cuisine);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+});
+
+app.get('/api/item', async (req, res) => {
+	try {
+		const items = await ItemModel.find({});
+		if (!items) return res.status(404).json({ message: 'Item not found' });
+		res.json(items);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+});
+
+app.get('/api/item/:itemId', async (req, res) => {
+	try {
+		const id = new mongoose.Types.ObjectId(req.params.itemId);
+		const item = await ItemModel.findById(id);
+		if (!item) return res.status(404).json({ message: 'Item not found' });
+		res.json(item);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+});
+
+app.get('/api/narrative/:narrativeId', async (req, res) => {
+	try {
+		const id = new mongoose.Types.ObjectId(req.params.narrativeId);
+		const narrative = await NarrativeModel.findById(id).populate(
+			'chapters.items'
+		);
+
+		if (!narrative)
+			return res.status(404).json({ message: 'Narrative not found' });
+		res.json(narrative);
 	} catch (error) {
 		res.status(500).json({ message: error.message });
 	}

@@ -9,24 +9,25 @@ export interface Cuisine {
 }
 
 export interface Item {
+	_id: string;
 	itemId: number;
 	name: string;
-	shortDescription: string;
-	mediumDescription: string;
-	longDescription: string;
-	image_url: string;
+	translation: string;
+	introductoryDescriptions: string[];
+	averageDescriptions: string[];
+	AdvancedDescriptions: string[];
+	imageUrl: string;
 	qrCode?: any;
 }
 
 export interface Narrative {
-	narrativeId: number;
+	_id: string;
 	title: string;
 	description: string;
 	chapters: Chapter[];
 }
 
 export interface Chapter {
-	chapterId: number;
 	title: string;
 	introduction: string;
 	items: Item[];
