@@ -64,7 +64,31 @@ app.get('/api/item/:itemId', async (req, res) => {
 	}
 });
 
+app.get('/api/narrative', async (req, res) => {
+	try {
+		const narratives = await NarrativeModel.find({});
+		if (!narratives)
+			return res.status(404).json({ message: 'Narratives not found' });
+		res.json(narratives);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+});
+
 app.get('/api/narrative/:narrativeId', async (req, res) => {
+	try {
+		const id = new mongoose.Types.ObjectId(req.params.narrativeId);
+		const narrative = await NarrativeModel.findById(id);
+
+		if (!narrative)
+			return res.status(404).json({ message: 'Narrative not found' });
+		res.json(narrative);
+	} catch (error) {
+		res.status(500).json({ message: error.message });
+	}
+});
+
+app.get('/api/narrativeFull/:narrativeId', async (req, res) => {
 	try {
 		const id = new mongoose.Types.ObjectId(req.params.narrativeId);
 		const narrative = await NarrativeModel.findById(id).populate(

@@ -10,12 +10,11 @@ export interface Cuisine {
 
 export interface Item {
 	_id: string;
-	itemId: number;
 	name: string;
 	translation: string;
 	introductoryDescriptions: string[];
 	averageDescriptions: string[];
-	AdvancedDescriptions: string[];
+	advancedDescriptions: string[];
 	imageUrl: string;
 	qrCode?: any;
 }
@@ -30,7 +29,7 @@ export interface Narrative {
 export interface Chapter {
 	title: string;
 	introduction: string;
-	items: Item[];
+	items: Item[] | string[];
 }
 
 export interface Room {

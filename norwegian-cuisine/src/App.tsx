@@ -6,6 +6,10 @@ import AboutPage from './pages/AboutPage';
 import DescriptionPage from './pages/DescriptionPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import Header from './components/Header/Header';
+import NarrativePage from './pages/NarrativePage';
+import CoverPage from './pages/CoverPage';
+import ChapterPage from './pages/ChapterPage';
+import ItemPage from './pages/ItemPage';
 
 function App() {
 	return (
@@ -13,11 +17,17 @@ function App() {
 			<Header />
 			<main>
 				<Routes>
-					<Route path="/" element={<MainPage />} />
+					<Route path="/" element={<CoverPage />} />
 					<Route
 						path="/cuisine/:cuisineId"
 						element={<CuisinePage />}
 					/>
+					<Route
+						path="/narrative/:narrativeId"
+						element={<NarrativePage />}
+					/>
+					<Route path="/item/:itemId" element={<ItemPage />} />
+					<Route path="/chapter" element={<ChapterPage />} />
 					<Route path="/about" element={<AboutPage />} />
 					<Route path="/description" element={<DescriptionPage />} />
 					<Route path="/disclaimer" element={<DisclaimerPage />} />
