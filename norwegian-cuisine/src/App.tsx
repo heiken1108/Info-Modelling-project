@@ -1,7 +1,5 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import CuisinePage from './pages/CuisinePage';
-import MainPage from './pages/MainPage';
 import AboutPage from './pages/AboutPage';
 import DescriptionPage from './pages/DescriptionPage';
 import DisclaimerPage from './pages/DisclaimerPage';
@@ -18,10 +16,6 @@ function App() {
 			<main>
 				<Routes>
 					<Route path="/" element={<CoverPage />} />
-					<Route
-						path="/cuisine/:cuisineId"
-						element={<CuisinePage />}
-					/>
 					<Route
 						path="/narrative/:narrativeId"
 						element={<NarrativePage />}
