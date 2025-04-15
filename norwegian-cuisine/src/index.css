@@ -11,6 +11,8 @@
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+
+	width: 100vw;
 }
 
 a {
@@ -27,12 +29,14 @@ body {
 	padding: 0;
 	width: 100vw;
 	min-height: 100vh;
+		
 }
 
 h1 {
 	font-size: 3.2em;
 	line-height: 1.1;
 	color: #00205b;
+	align-self: center;
 }
 
 button {
@@ -52,6 +56,10 @@ button:hover {
 button:focus,
 button:focus-visible {
 	outline: 4px auto -webkit-focus-ring-color;
+}
+
+img {
+	max-width: 300px;
 }
 
 @media (prefers-color-scheme: light) {

@@ -1,6 +1,11 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import { Item } from '../lib/types';
 import { useEffect, useState } from 'react';
+import '../styling/itemPage.css';
+
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+
 
 function ItemPage() {
 	const { itemId } = useParams<{ itemId: string }>();
@@ -41,17 +46,33 @@ function ItemPage() {
 	if (!item) {
 		return <div>Loading...</div>;
 	}
+	
 
 	return (
 		<div>
-			<h1>Item Page</h1>
-			<p>This is the item page.</p>
-			<p>Item ID: {itemId}</p>
-			<p>{item.name}</p>
-			<ChapterNavigation numberOfChapters={chapterIntroductions.length} />
-			<ItemNavigation
-				numberOfItems={chapterIntroductions[chapterIndex].items.length}
-			/>
+			<div>
+				<div className='nav-buttons'>
+					<ChapterNavigation numberOfChapters={chapterIntroductions.length} />
+				</div>
+			<h1 style={{ textAlign: 'center' }}>{item.name}</h1>
+				<div className='item-container'>
+					{item.imageUrl && (
+						<img src={item.imageUrl} alt={item.name}/>
+					)}
+				<div className='information-container'>
+					<p>This is the item page.</p>
+					<p>Item ID: {itemId}</p>
+					<p>Item Name: {item.name}</p>
+					<p>Item Translation: {item.translation}</p>
+				</div>
+				</div>
+				<div className='nav-buttons'>
+				<ItemNavigation
+					numberOfItems={chapterIntroductions[chapterIndex].items.length}
+				/>
+				</div>
+				
+			</div>
 		</div>
 	);
 }
@@ -70,21 +91,24 @@ function ItemNavigation({ numberOfItems }: { numberOfItems: number }) {
 	};
 
 	return (
-		<div className="flex justify-between">
+		<div>
 			{itemIndex > 0 && (
 				<button
 					onClick={() => handleClick(false)}
-					className="bg-blue-500 text-white px-4 py-2 rounded"
+					style={{ margin: '10px' }}
 				>
+					<ArrowBackIcon/>
 					Previous Item
+					
 				</button>
 			)}
 			{itemIndex < numberOfItems - 1 && (
 				<button
 					onClick={() => handleClick(true)}
-					className="bg-blue-500 text-white px-4 py-2 rounded"
+					style={{ margin: '10px' }}
 				>
 					Next Item
+					<ArrowForwardIcon/>
 				</button>
 			)}
 		</div>
@@ -103,12 +127,13 @@ function ChapterNavigation({ numberOfChapters }: { numberOfChapters: number }) {
 	};
 
 	return (
-		<div className="flex justify-between">
+		<div className = 'chapter-buttons'>
 			{chapterIndex > 0 && (
 				<button
 					onClick={() => handleClick(false)}
 					className="bg-blue-500 text-white px-4 py-2 rounded"
 				>
+					<ArrowBackIcon/>
 					Previous Chapter
 				</button>
 			)}
@@ -118,6 +143,7 @@ function ChapterNavigation({ numberOfChapters }: { numberOfChapters: number }) {
 					className="bg-blue-500 text-white px-4 py-2 rounded"
 				>
 					Next Chapter
+					<ArrowForwardIcon/>
 				</button>
 			)}
 		</div>

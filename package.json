@@ -16,7 +16,10 @@
 	"dependencies": {
 		"@emotion/react": "^11.14.0",
 		"@emotion/styled": "^11.14.0",
-		"@mui/material": "^6.4.6",
-		"cuisine-app": "file:"
+		"@mui/icons-material": "^6.4.11",
+		"@mui/material": "^6.4.11",
+		"cuisine-app": "file:",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0"
 	}
 }
