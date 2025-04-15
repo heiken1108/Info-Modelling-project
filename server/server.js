@@ -246,8 +246,8 @@ app.get(
 					.json({ message: 'Item is not in this chapter' });
 
 			const previousChapterPointer =
-				chapterIndex > 0
-					? `/narrative/${narrativeId}/chapter/${chapterIndex - 1}`
+				chapterIndex >= 0
+					? `/narrative/${narrativeId}/chapter/${chapterIndex}`
 					: null;
 			const nextChapterPointer =
 				chapterIndex < narrative.chapters.length - 1

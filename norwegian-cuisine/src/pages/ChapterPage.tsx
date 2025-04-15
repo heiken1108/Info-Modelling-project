@@ -1,95 +1,72 @@
-import { useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Chapter } from '../lib/types';
+import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
+import ItemButtons from '../components/NavigationButtons/ItemButtons';
+import '../styling/itemPage.css';
 
 function ChapterPage() {
-	const chapterIndex = Number(sessionStorage.getItem('chapterIndex'));
-	const chapterIntroductions = JSON.parse(
-		sessionStorage.getItem('chapters') || '[]'
-	);
+	const { narrativeId, chapterIndex } = useParams<{
+		narrativeId: string;
+		chapterIndex: string;
+	}>();
+	const [chapter, setChapter] = useState<Chapter>();
+
+	useEffect(() => {
+		fetch(`/api/narrative/${narrativeId}/chapter/${chapterIndex}`)
+			.then((res) => {
+				console.log(res);
+				if (!res.ok) {
+					if (res.status === 404) {
+						throw new Error('Cuisine not found');
+					}
+					throw new Error(`HTTP error! status: ${res.status}`);
+				}
+				return res.json();
+			})
+			.then((data) => {
+				const chapter: Chapter = {
+					title: data.title,
+					introduction: data.introduction,
+					previousChapterPointer: data.previousChapterPointer,
+					nextChapterPointer: data.nextChapterPointer,
+					previousItemPointer: data.previousItemPointer,
+					nextItemPointer: data.nextItemPointer,
+					items: data.items,
+				};
+				setChapter(chapter);
+			});
+	});
+
+	if (!chapter) {
+		return <div>Loading chapter...</div>;
+	}
+
 	return (
 		<div>
-			<h1>Chapter Page</h1>
-			<p>This is the chapter page.</p>
-			{chapterIntroductions[chapterIndex].title}
-			<p>{chapterIntroductions[chapterIndex].introduction}</p>
-			<ChapterNavigation numberOfChapters={chapterIntroductions.length} />
-			<ItemNavigation
-				numberOfItems={chapterIntroductions[chapterIndex].items.length}
-			/>
-		</div>
-	);
-}
-
-function ChapterNavigation({ numberOfChapters }: { numberOfChapters: number }) {
-	const navigate = useNavigate();
-	const chapterIndex = Number(sessionStorage.getItem('chapterIndex'));
-
-	const handleClick = (forward: boolean) => {
-		const newChapterIndex = forward ? chapterIndex + 1 : chapterIndex - 1;
-		sessionStorage.setItem('chapterIndex', newChapterIndex.toString());
-		sessionStorage.setItem('itemIndex', '0');
-		navigate(0);
-	};
-	return (
-		<div className="flex justify-between">
-			{chapterIndex > 0 && (
-				<button
-					onClick={() => handleClick(false)}
-					className="bg-blue-500 text-white px-4 py-2 rounded"
-				>
-					Previous Chapter
-				</button>
-			)}
-			{chapterIndex < numberOfChapters - 1 && (
-				<button
-					onClick={() => handleClick(true)}
-					className="bg-blue-500 text-white px-4 py-2 rounded"
-				>
-					Next Chapter
-				</button>
-			)}
-		</div>
-	);
-}
-
-function ItemNavigation({ numberOfItems }: { numberOfItems: number }) {
-	const navigate = useNavigate();
-	const itemIndex = Number(sessionStorage.getItem('itemIndex'));
-	const chapterIndex = Number(sessionStorage.getItem('chapterIndex'));
-	const chapters = JSON.parse(sessionStorage.getItem('chapters') || '[]');
-
-	const handleClick = (forward: boolean) => {
-		if (forward) {
-			const newItemIndex = 0;
-			const objectId = chapters[chapterIndex].items[newItemIndex];
-			navigate(`../item/${objectId}`);
-		} else {
-			const newChapterIndex = chapterIndex - 1;
-			sessionStorage.setItem('chapterIndex', newChapterIndex.toString());
-			const newItemIndex = chapters[newChapterIndex].items.length - 1;
-			sessionStorage.setItem('itemIndex', newItemIndex.toString());
-			const objectId = chapters[newChapterIndex].items[newItemIndex];
-			navigate(`../item/${objectId}`);
-		}
-	};
-
-	return (
-		<div className="flex justify-between">
-			{chapterIndex > 0 && (
-				<button
-					onClick={() => handleClick(false)}
-					className="bg-blue-500 text-white px-4 py-2 rounded"
-				>
-					Previous Item
-				</button>
-			)}
-			{itemIndex < numberOfItems - 1 && (
-				<button
-					onClick={() => handleClick(true)}
-					className="bg-blue-500 text-white px-4 py-2 rounded"
-				>
-					Next Item
-				</button>
-			)}
+			<div>
+				<div className="nav-buttons">
+					<ChapterButtons
+						previousPointer={chapter.previousChapterPointer}
+						nextPointer={chapter.nextChapterPointer}
+						restartChapter={false}
+					/>
+				</div>
+				<h1 style={{ textAlign: 'center' }}>{chapter.title}</h1>
+				<div className="item-container">
+					<div className="information-container">
+						<p>This is the chapter page.</p>
+						<p>Chapter title: {chapter.title}</p>
+						<p>Chapter introduction: {chapter.introduction}</p>
+					</div>
+				</div>
+				<div className="nav-buttons">
+					<ItemButtons
+						previousPointer={chapter.previousItemPointer}
+						nextPointer={chapter.nextItemPointer}
+					/>
+				</div>
+			</div>
 		</div>
 	);
 }

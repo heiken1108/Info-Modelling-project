@@ -20,7 +20,14 @@ function App() {
 						path="/narrative/:narrativeId"
 						element={<NarrativePage />}
 					/>
-					<Route path="/item/:itemId" element={<ItemPage />} />
+					<Route
+						path="/narrative/:narrativeId/chapter/:chapterIndex"
+						element={<ChapterPage />}
+					/>
+					<Route
+						path="/narrative/:narrativeId/chapter/:chapterIndex/item/:itemId"
+						element={<ItemPage />}
+					/>
 					<Route path="/chapter" element={<ChapterPage />} />
 					<Route path="/about" element={<AboutPage />} />
 					<Route path="/description" element={<DescriptionPage />} />

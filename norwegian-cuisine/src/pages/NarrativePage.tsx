@@ -1,5 +1,3 @@
-//For description og Start narrative
-
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Narrative } from '../lib/types';
@@ -10,9 +8,7 @@ function NarrativePage() {
 	const [narrative, setNarrative] = useState<Narrative>();
 
 	const handleClick = (chapterNumber: number) => {
-		sessionStorage.setItem('chapterIndex', chapterNumber.toString());
-		sessionStorage.setItem('itemIndex', '0');
-		navigate(`../../chapter`);
+		navigate(`./chapter/${chapterNumber}`);
 	};
 
 	useEffect(() => {
@@ -39,20 +35,6 @@ function NarrativePage() {
 				};
 
 				setNarrative(narrative);
-
-				// Store in sessionStorage
-				sessionStorage.setItem(
-					'chapters',
-					JSON.stringify(data.chapters)
-				);
-				sessionStorage.setItem(
-					'chapterItems',
-					JSON.stringify(
-						data.chapters.map((chapter: any) => chapter.items)
-					)
-				);
-				sessionStorage.setItem('chapterIndex', '0');
-				sessionStorage.setItem('itemIndex', '0');
 			})
 			.catch((error) =>
 				console.error('Error fetching narrative:', error)
@@ -62,8 +44,6 @@ function NarrativePage() {
 	if (!narrative) {
 		return <div>Loading...</div>;
 	}
-	console.log(sessionStorage.getItem('chapters'));
-	console.log(sessionStorage.getItem('chapterItems'));
 
 	return (
 		<div className="narrative-page">
