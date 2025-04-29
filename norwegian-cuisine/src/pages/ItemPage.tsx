@@ -6,6 +6,7 @@ import '../styling/itemPage.css';
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
 import getImageByFileName from '../utils/imageLoader';
+import ThemeSelector from '../components/ThemeSelector/ThemeSelector';
 
 function ItemPage() {
 	const { narrativeId, chapterIndex, itemId } = useParams<{
@@ -14,6 +15,11 @@ function ItemPage() {
 		itemId: string;
 	}>();
 	const [item, setItem] = useState<Item>();
+	const [theme, setTheme] = useState<string>('viking');
+	useEffect(() => {
+		const savedTheme = localStorage.getItem('theme') || 'viking';
+		setTheme(savedTheme);
+	}, []);
 
 	useEffect(() => {
 		fetch(
@@ -60,6 +66,7 @@ function ItemPage() {
 	return (
 		<div>
 			<div>
+				<p>{theme}</p>
 				<div className="nav-buttons">
 					<ChapterButtons
 						previousPointer={item.previousChapterPointer}

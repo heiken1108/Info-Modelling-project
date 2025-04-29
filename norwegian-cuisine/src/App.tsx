@@ -8,6 +8,7 @@ import CoverPage from './pages/CoverPage';
 import ChapterPage from './pages/ChapterPage';
 import ItemPage from './pages/ItemPage';
 import DocumentationPage from './pages/DocumentationPage';
+import ThemeSelector from './components/ThemeSelector/ThemeSelector';
 
 function App() {
 	return (
@@ -36,6 +37,7 @@ function App() {
 						element={<DocumentationPage />}
 					/>
 				</Routes>
+				<ThemeSelector />
 			</main>
 		</Router>
 	);
