@@ -7,6 +7,8 @@ import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
 import getImageByFileName from '../utils/imageLoader';
 
+
+
 function ItemPage() {
 	const { narrativeId, chapterIndex, itemId } = useParams<{
 		narrativeId: string;
@@ -14,7 +16,11 @@ function ItemPage() {
 		itemId: string;
 	}>();
 	const [item, setItem] = useState<Item>();
-
+	const [visibleLevel, setVisibleLevel] = useState(1);
+	const handleClick = () => {
+		setVisibleLevel((prev) => (prev < 3 ? prev + 1 : 1));
+	  };
+	
 	useEffect(() => {
 		fetch(
 			`/api/narrative/${narrativeId}/chapter/${chapterIndex}/item/${itemId}`
@@ -47,7 +53,7 @@ function ItemPage() {
 				};
 				setItem(item);
 			});
-	}, [itemId]);
+	});
 
 	if (!item) {
 		return <div>Loading item...</div>;
@@ -56,7 +62,6 @@ function ItemPage() {
 	if (!imageSrc) {
 		return <div>Image not found</div>;
 	}
-
 	return (
 		<div>
 			<div>
@@ -67,15 +72,19 @@ function ItemPage() {
 						restartChapter={true}
 					/>
 				</div>
-				<h1 style={{ textAlign: 'center' }}>
-					{item.name} ({item.translation})
-				</h1>
+				<h1 style={{ textAlign: 'center' }}>{item.name} ({item.translation})</h1>
 				<div className="item-container">
-					<img src={imageSrc} alt={item.name} />
+				<img src={imageSrc} alt={item.name} />
 					<div className="information-container">
-						<p>{item.introductoryDescriptions[0]}</p>
-						<p>{item.introductoryDescriptions[1]}</p>
-						<p>{item.introductoryDescriptions[2]}</p>
+
+						{item.introductoryDescriptions.slice(0, visibleLevel).map((desc, idx) => (
+    					  <p key={idx}>{desc}</p>
+    					))}
+
+    					<button onClick={handleClick}>
+    					  {visibleLevel === 1 ? 'Show more' : visibleLevel === 2 ? 'Show all' : 'Show less'}
+    					</button>
+						
 					</div>
 				</div>
 				<div className="nav-buttons">
