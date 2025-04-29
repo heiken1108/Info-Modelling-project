@@ -5,6 +5,9 @@ import '../styling/itemPage.css';
 
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
+import getImageByFileName from '../utils/imageLoader';
+
+
 
 function ItemPage() {
 	const { narrativeId, chapterIndex, itemId } = useParams<{
@@ -37,6 +40,7 @@ function ItemPage() {
 					averageDescriptions: data.averageDescriptions,
 					advancedDescriptions: data.AdvancedDescriptions,
 					imageUrl: data.imageUrl,
+					fileName: data.fileName,
 					previousChapterPointer: data.previousChapterPointer,
 					nextChapterPointer: data.nextChapterPointer,
 					previousItemPointer: data.previousItemPointer,
@@ -50,6 +54,10 @@ function ItemPage() {
 	if (!item) {
 		return <div>Loading item...</div>;
 	}
+	const imageSrc = getImageByFileName(item.fileName);
+	console.log('hellooooooooooo')
+	console.log('imageSrc:', imageSrc);
+
 
 	return (
 		<div>
@@ -63,14 +71,13 @@ function ItemPage() {
 				</div>
 				<h1 style={{ textAlign: 'center' }}>{item.name}</h1>
 				<div className="item-container">
-					{item.imageUrl && (
-						<img src={item.imageUrl} alt={item.name} />
-					)}
+				<img src={imageSrc} alt={item.name} />
 					<div className="information-container">
 						<p>This is the item page.</p>
 						<p>Item ID: {itemId}</p>
 						<p>Item Name: {item.name}</p>
 						<p>Item Translation: {item.translation}</p>
+						<p>Item File Name: {item.fileName}</p>
 					</div>
 				</div>
 				<div className="nav-buttons">

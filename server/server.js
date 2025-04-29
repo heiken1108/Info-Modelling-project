@@ -278,6 +278,7 @@ app.get(
 				nextChapterPointer,
 				previousItemPointer,
 				nextItemPointer,
+				fileName: item.fileName
 			});
 		} catch (error) {
 			res.status(500).json({ message: error.message });

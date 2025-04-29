@@ -6,6 +6,7 @@ export interface Item {
 	averageDescriptions: string[];
 	advancedDescriptions: string[];
 	imageUrl: string;
+	fileName: string;
 	previousChapterPointer: string;
 	nextChapterPointer: string;
 	previousItemPointer: string;
