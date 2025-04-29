@@ -55,9 +55,9 @@ function ItemPage() {
 		return <div>Loading item...</div>;
 	}
 	const imageSrc = getImageByFileName(item.fileName);
-	console.log('hellooooooooooo')
-	console.log('imageSrc:', imageSrc);
-
+	if (!imageSrc) {
+		return <div>Image not found</div>;
+	}
 
 	return (
 		<div>
@@ -69,15 +69,14 @@ function ItemPage() {
 						restartChapter={true}
 					/>
 				</div>
-				<h1 style={{ textAlign: 'center' }}>{item.name}</h1>
+				<h1 style={{ textAlign: 'center' }}>{item.name} ({item.translation})</h1>
 				<div className="item-container">
 				<img src={imageSrc} alt={item.name} />
 					<div className="information-container">
-						<p>This is the item page.</p>
-						<p>Item ID: {itemId}</p>
-						<p>Item Name: {item.name}</p>
-						<p>Item Translation: {item.translation}</p>
-						<p>Item File Name: {item.fileName}</p>
+						<p>{item.introductoryDescriptions[0]}</p>
+						<p>{item.introductoryDescriptions[1]}</p>
+						<p>{item.introductoryDescriptions[2]}</p>
+						
 					</div>
 				</div>
 				<div className="nav-buttons">
