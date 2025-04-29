@@ -36,7 +36,7 @@ function ChapterPage() {
 				};
 				setChapter(chapter);
 			});
-	});
+	}, [chapterIndex]);
 
 	if (!chapter) {
 		return <div>Loading chapter...</div>;
