@@ -1,13 +1,3 @@
-export interface Cuisine {
-	cuisineId: number;
-	name: string;
-	translation: string;
-	description: string;
-	image_url: string;
-	source_url: string;
-	rating: number;
-}
-
 export interface Item {
 	_id: string;
 	name: string;
@@ -16,6 +6,11 @@ export interface Item {
 	averageDescriptions: string[];
 	advancedDescriptions: string[];
 	imageUrl: string;
+	fileName: string;
+	previousChapterPointer: string;
+	nextChapterPointer: string;
+	previousItemPointer: string;
+	nextItemPointer: string;
 	qrCode?: any;
 }
 
@@ -23,13 +18,23 @@ export interface Narrative {
 	_id: string;
 	title: string;
 	description: string;
-	chapters: Chapter[];
+	chapters: ChapterIntroduction[];
+}
+
+interface ChapterIntroduction {
+	title: string;
+	introduction: string;
+	index: number;
 }
 
 export interface Chapter {
 	title: string;
 	introduction: string;
-	items: Item[] | string[];
+	previousChapterPointer: string;
+	nextChapterPointer: string;
+	previousItemPointer: string;
+	nextItemPointer: string;
+	items: string[];
 }
 
 export interface Room {

@@ -29,6 +29,10 @@ export const ItemSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	fileName: {
+		type: String,
+		required: true,
+	},
 });
 
 const ItemModel = mongoose.model('Items', ItemSchema);
