@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Chapter } from '../lib/types';
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';

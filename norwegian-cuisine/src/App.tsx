@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
-import DescriptionPage from './pages/DescriptionPage';
 import DisclaimerPage from './pages/DisclaimerPage';
 import Header from './components/Header/Header';
 import NarrativePage from './pages/NarrativePage';
 import CoverPage from './pages/CoverPage';
 import ChapterPage from './pages/ChapterPage';
 import ItemPage from './pages/ItemPage';
+import DocumentationPage from './pages/DocumentationPage';
 
 function App() {
 	return (
@@ -30,8 +30,11 @@ function App() {
 					/>
 					<Route path="/chapter" element={<ChapterPage />} />
 					<Route path="/about" element={<AboutPage />} />
-					<Route path="/description" element={<DescriptionPage />} />
 					<Route path="/disclaimer" element={<DisclaimerPage />} />
+					<Route
+						path="/documentation"
+						element={<DocumentationPage />}
+					/>
 				</Routes>
 			</main>
 		</Router>
