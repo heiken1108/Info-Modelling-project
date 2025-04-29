@@ -12,10 +12,10 @@ function Header() {
 						<a href="/about">About</a>
 					</li>
 					<li>
-						<a href="/description">Description</a>
+						<a href="/disclaimer">Disclaimer</a>
 					</li>
 					<li>
-						<a href="/disclaimer">Disclaimer</a>
+						<a href="/documentation">Documentation</a>
 					</li>
 				</ul>
 			</nav>
