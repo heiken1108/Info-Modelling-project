@@ -17,9 +17,19 @@ function ItemPage() {
 	}>();
 	const [item, setItem] = useState<Item>();
 	const [visibleLevel, setVisibleLevel] = useState(1);
-	const handleClick = () => {
+	const [itemLevel, setItemLevel] = useState(0);
+	const informationLevels = [
+		'introductoryDescriptions',
+		'averageDescriptions',
+		'advancedDescriptions',
+	];
+	
+	const handleVisibleLevelClick = () => {
 		setVisibleLevel((prev) => (prev < 3 ? prev + 1 : 1));
 	  };
+	const handleInformationLevelClick = () => {
+		setItemLevel((prev) => (prev < 2 ? prev + 1 : 0));
+	}
 	
 	useEffect(() => {
 		fetch(
@@ -42,7 +52,7 @@ function ItemPage() {
 					translation: data.translation,
 					introductoryDescriptions: data.introductoryDescriptions,
 					averageDescriptions: data.averageDescriptions,
-					advancedDescriptions: data.AdvancedDescriptions,
+					advancedDescriptions: data.advancedDescriptions,
 					imageUrl: data.imageUrl,
 					fileName: data.fileName,
 					previousChapterPointer: data.previousChapterPointer,
@@ -75,17 +85,21 @@ function ItemPage() {
 				<h1 style={{ textAlign: 'center' }}>{item.name} ({item.translation})</h1>
 				<div className="item-container">
 				<img src={imageSrc} alt={item.name} />
-					<div className="information-container">
-
-						{item.introductoryDescriptions.slice(0, visibleLevel).map((desc, idx) => (
-    					  <p key={idx}>{desc}</p>
-    					))}
-
-    					<button onClick={handleClick}>
+				<div className="information-container">
+					 {(item as unknown as Record<string, string[]>)[informationLevels[itemLevel].charAt(0).toLowerCase() + informationLevels[itemLevel].slice(1)]
+					   ?.slice(0, visibleLevel)
+					   .map((desc, idx) => (
+						 <p key={idx}>{desc}</p>
+					 ))}
+					</div>
+					<div className='button-container'>
+					<button onClick={handleVisibleLevelClick}>
     					  {visibleLevel === 1 ? 'Show more' : visibleLevel === 2 ? 'Show all' : 'Show less'}
     					</button>
-						
-					</div>
+					<button onClick={handleInformationLevelClick} style={{ marginTop: '10px' }}>
+						{itemLevel === 0 ? 'I am smarter' : itemLevel === 1 ? 'even smarter' : 'dummy time'}
+						</button>
+					 </div>
 				</div>
 				<div className="nav-buttons">
 					<ItemButtons
