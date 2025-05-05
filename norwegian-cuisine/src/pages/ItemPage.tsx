@@ -8,6 +8,8 @@ import ItemButtons from '../components/NavigationButtons/ItemButtons';
 import getImageByFileName from '../utils/imageLoader';
 import ThemeSelector from '../components/ThemeSelector/ThemeSelector';
 
+
+
 function ItemPage() {
 	const { narrativeId, chapterIndex, itemId } = useParams<{
 		narrativeId: string;
@@ -20,7 +22,21 @@ function ItemPage() {
 		const savedTheme = localStorage.getItem('theme') || 'viking';
 		setTheme(savedTheme);
 	}, []);
-
+	const [visibleLevel, setVisibleLevel] = useState(1);
+	const [itemLevel, setItemLevel] = useState(0);
+	const informationLevels = [
+		'introductoryDescriptions',
+		'averageDescriptions',
+		'advancedDescriptions',
+	];
+	
+	const handleVisibleLevelClick = () => {
+		setVisibleLevel((prev) => (prev < 3 ? prev + 1 : 1));
+	  };
+	const handleInformationLevelClick = () => {
+		setItemLevel((prev) => (prev < 2 ? prev + 1 : 0));
+	}
+	
 	useEffect(() => {
 		fetch(
 			`/api/narrative/${narrativeId}/chapter/${chapterIndex}/item/${itemId}`
@@ -42,7 +58,7 @@ function ItemPage() {
 					translation: data.translation,
 					introductoryDescriptions: data.introductoryDescriptions,
 					averageDescriptions: data.averageDescriptions,
-					advancedDescriptions: data.AdvancedDescriptions,
+					advancedDescriptions: data.advancedDescriptions,
 					imageUrl: data.imageUrl,
 					fileName: data.fileName,
 					previousChapterPointer: data.previousChapterPointer,
@@ -53,7 +69,7 @@ function ItemPage() {
 				};
 				setItem(item);
 			});
-	}, [itemId]);
+	});
 
 	if (!item) {
 		return <div>Loading item...</div>;
@@ -62,7 +78,6 @@ function ItemPage() {
 	if (!imageSrc) {
 		return <div>Image not found</div>;
 	}
-
 	return (
 		<div>
 			<div>
@@ -74,16 +89,24 @@ function ItemPage() {
 						restartChapter={true}
 					/>
 				</div>
-				<h1 style={{ textAlign: 'center' }}>
-					{item.name} ({item.translation})
-				</h1>
+				<h1 style={{ textAlign: 'center' }}>{item.name} ({item.translation})</h1>
 				<div className="item-container">
-					<img src={imageSrc} alt={item.name} />
-					<div className="information-container">
-						<p>{item.introductoryDescriptions[0]}</p>
-						<p>{item.introductoryDescriptions[1]}</p>
-						<p>{item.introductoryDescriptions[2]}</p>
+				<img src={imageSrc} alt={item.name} />
+				<div className="information-container">
+					 {(item as unknown as Record<string, string[]>)[informationLevels[itemLevel].charAt(0).toLowerCase() + informationLevels[itemLevel].slice(1)]
+					   ?.slice(0, visibleLevel)
+					   .map((desc, idx) => (
+						 <p key={idx}>{desc}</p>
+					 ))}
 					</div>
+					<div className='button-container'>
+					<button onClick={handleVisibleLevelClick}>
+    					  {visibleLevel === 1 ? 'Show more' : visibleLevel === 2 ? 'Show all' : 'Show less'}
+    					</button>
+					<button onClick={handleInformationLevelClick} style={{ marginTop: '10px' }}>
+						{itemLevel === 0 ? 'I am smarter' : itemLevel === 1 ? 'even smarter' : 'dummy time'}
+						</button>
+					 </div>
 				</div>
 				<div className="nav-buttons">
 					<ItemButtons
