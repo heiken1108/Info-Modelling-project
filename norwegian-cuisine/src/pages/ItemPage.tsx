@@ -1,14 +1,13 @@
 import { useParams } from 'react-router-dom';
 import { Item } from '../lib/types';
 import { useEffect, useState } from 'react';
-import '../styling/itemPage.css';
+import '../styling/ItemPageNew.css';
 
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
 import getImageByFileName from '../utils/imageLoader';
-import ThemeSelector from '../components/ThemeSelector/ThemeSelector';
-
-
+import { InfoOutline, QrCode } from '@mui/icons-material';
+import QRCode from 'qrcode';
 
 function ItemPage() {
 	const { narrativeId, chapterIndex, itemId } = useParams<{
@@ -29,14 +28,26 @@ function ItemPage() {
 		'averageDescriptions',
 		'advancedDescriptions',
 	];
-	
+	const [metaToggle, setMetaToggle] = useState(false);
+
 	const handleVisibleLevelClick = () => {
 		setVisibleLevel((prev) => (prev < 3 ? prev + 1 : 1));
-	  };
+	};
 	const handleInformationLevelClick = () => {
 		setItemLevel((prev) => (prev < 2 ? prev + 1 : 0));
-	}
-	
+	};
+	const [qrCodeUrl, setQrCodeUrl] = useState<string | null>(null);
+
+	const generateQRCodeDataURL = async (text: string): Promise<string> => {
+		try {
+			const dataUrl = await QRCode.toDataURL(text);
+			return dataUrl;
+		} catch (err) {
+			console.error('Failed to generate QR Code', err);
+			throw err;
+		}
+	};
+
 	useEffect(() => {
 		fetch(
 			`/api/narrative/${narrativeId}/chapter/${chapterIndex}/item/${itemId}`
@@ -65,9 +76,20 @@ function ItemPage() {
 					nextChapterPointer: data.nextChapterPointer,
 					previousItemPointer: data.previousItemPointer,
 					nextItemPointer: data.nextItemPointer,
-					qrCode: null,
+					qrCode: data.imageUrl, //Heller peke på qrcode lokalt?
 				};
 				setItem(item);
+			})
+			.then(() => {
+				if (item?.qrCode) {
+					generateQRCodeDataURL(item.qrCode)
+						.then((dataUrl) => {
+							setQrCodeUrl(dataUrl);
+						})
+						.catch((error) => {
+							console.error('Error generating QR code:', error);
+						});
+				}
 			});
 	});
 
@@ -78,6 +100,7 @@ function ItemPage() {
 	if (!imageSrc) {
 		return <div>Image not found</div>;
 	}
+	/*
 	return (
 		<div>
 			<div>
@@ -89,26 +112,127 @@ function ItemPage() {
 						restartChapter={true}
 					/>
 				</div>
-				<h1 style={{ textAlign: 'center' }}>{item.name} ({item.translation})</h1>
+				<h1 style={{ textAlign: 'center' }}>
+					{item.name} ({item.translation})
+				</h1>
 				<div className="item-container">
-				<img src={imageSrc} alt={item.name} />
-				<div className="information-container">
-					 {(item as unknown as Record<string, string[]>)[informationLevels[itemLevel].charAt(0).toLowerCase() + informationLevels[itemLevel].slice(1)]
-					   ?.slice(0, visibleLevel)
-					   .map((desc, idx) => (
-						 <p key={idx}>{desc}</p>
-					 ))}
+					<img src={imageSrc} alt={item.name} />
+					<div className="information-container">
+						{(item as unknown as Record<string, string[]>)[
+							informationLevels[itemLevel]
+								.charAt(0)
+								.toLowerCase() +
+								informationLevels[itemLevel].slice(1)
+						]
+							?.slice(0, visibleLevel)
+							.map((desc, idx) => (
+								<p key={idx}>{desc}</p>
+							))}
 					</div>
-					<div className='button-container'>
-					<button onClick={handleVisibleLevelClick}>
-    					  {visibleLevel === 1 ? 'Show more' : visibleLevel === 2 ? 'Show all' : 'Show less'}
-    					</button>
-					<button onClick={handleInformationLevelClick} style={{ marginTop: '10px' }}>
-						{itemLevel === 0 ? 'I am smarter' : itemLevel === 1 ? 'even smarter' : 'dummy time'}
+					<div className="button-container">
+						<button onClick={handleVisibleLevelClick}>
+							{visibleLevel === 1
+								? 'Show more'
+								: visibleLevel === 2
+								? 'Show all'
+								: 'Show less'}
 						</button>
-					 </div>
+						<button
+							onClick={handleInformationLevelClick}
+							style={{ marginTop: '10px' }}
+						>
+							{itemLevel === 0
+								? 'I am smarter'
+								: itemLevel === 1
+								? 'even smarter'
+								: 'dummy time'}
+						</button>
+					</div>
 				</div>
 				<div className="nav-buttons">
+					<ItemButtons
+						previousPointer={item.previousItemPointer}
+						nextPointer={item.nextItemPointer}
+					/>
+				</div>
+			</div>
+		</div>
+	);*/
+
+	return (
+		<div className={`main-div theme-${theme}`}>
+			<div className="item-div">
+				<h3 className="item-title">{item.name}</h3>
+				<div className="item-content-div">
+					<div className="item-content-img-div">
+						<div className="item-content-img-meta-toggle-div">
+							<button onClick={() => setMetaToggle(!metaToggle)}>
+								<InfoOutline />
+							</button>
+						</div>
+						{!metaToggle && <img src={imageSrc} alt={item.name} />}
+						{metaToggle && (
+							<div className="item-content-img-meta-div">
+								<h3>Metadata</h3>
+								<table>
+									<tbody>
+										<tr>
+											<th>File name</th>
+											<td>{item.fileName}</td>
+										</tr>
+									</tbody>
+								</table>
+								{item.qrCode && (
+									<div className="qrcode-div">
+										<h4>Read more</h4>
+										<img
+											src={qrCodeUrl || ''}
+											alt={item.imageUrl}
+										/>
+									</div>
+								)}
+							</div>
+						)}
+					</div>
+					<div className="item-content-description-div">
+						<div className="item-content-description-text-div">
+							<p>
+								{(item as unknown as Record<string, string[]>)[
+									informationLevels[itemLevel]
+										.charAt(0)
+										.toLowerCase() +
+										informationLevels[itemLevel].slice(1)
+								]
+									?.slice(0, visibleLevel)
+									.map((desc, idx) => (
+										<> {desc}</>
+									))}
+							</p>
+						</div>
+						<div className="item-content-description-buttons-div">
+							<button onClick={handleVisibleLevelClick}>
+								{visibleLevel === 1
+									? 'Show more'
+									: visibleLevel === 2
+									? 'Show all'
+									: 'Show less'}
+							</button>
+							<button onClick={handleInformationLevelClick}>
+								{itemLevel === 0
+									? 'I am smarter'
+									: itemLevel === 1
+									? 'even smarter'
+									: 'dummy time'}
+							</button>
+						</div>
+					</div>
+				</div>
+				<div>
+					<ChapterButtons
+						previousPointer={item.previousChapterPointer}
+						nextPointer={item.nextChapterPointer}
+						restartChapter={true}
+					/>
 					<ItemButtons
 						previousPointer={item.previousItemPointer}
 						nextPointer={item.nextItemPointer}

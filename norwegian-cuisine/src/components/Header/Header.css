@@ -15,3 +15,12 @@
 .navigation ul li {
 	margin-left: 10px;
 }
+
+.header a {
+	text-decoration: none;
+	color: black;
+}
+
+.header a:hover {
+	text-decoration: underline;
+}

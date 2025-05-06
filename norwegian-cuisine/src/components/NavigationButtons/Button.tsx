@@ -18,7 +18,7 @@ function Button({
 	};
 
 	return (
-		<button onClick={handleClick} style={{ margin: '10px' }}>
+		<button onClick={handleClick} className="nav-button">
 			{forward ? (
 				<>
 					{text}
