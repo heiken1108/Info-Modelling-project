@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Chapter } from '../lib/types';
+import '../styling/ChapterPage.css';
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
-import '../styling/itemPage.css';
 
 function ChapterPage() {
 	const { narrativeId, chapterIndex } = useParams<{
@@ -11,6 +11,11 @@ function ChapterPage() {
 		chapterIndex: string;
 	}>();
 	const [chapter, setChapter] = useState<Chapter>();
+	const [theme, setTheme] = useState<string>('viking');
+	useEffect(() => {
+		const savedTheme = localStorage.getItem('theme') || 'viking';
+		setTheme(savedTheme);
+	}, []);
 
 	useEffect(() => {
 		fetch(`/api/narrative/${narrativeId}/chapter/${chapterIndex}`)
@@ -43,24 +48,18 @@ function ChapterPage() {
 	}
 
 	return (
-		<div>
-			<div>
-				<div className="nav-buttons">
+		<div className={`main-div theme-${theme}`}>
+			<div className="chapter-div">
+				<h3>{chapter.title}</h3>
+				<div className="chapter-description-div">
+					{chapter.introduction}
+				</div>
+				<div>
 					<ChapterButtons
 						previousPointer={chapter.previousChapterPointer}
 						nextPointer={chapter.nextChapterPointer}
 						restartChapter={false}
 					/>
-				</div>
-				<h1 style={{ textAlign: 'center' }}>{chapter.title}</h1>
-				<div className="item-container">
-					<div className="information-container">
-						<p>This is the chapter page.</p>
-						<p>Chapter title: {chapter.title}</p>
-						<p>Chapter introduction: {chapter.introduction}</p>
-					</div>
-				</div>
-				<div className="nav-buttons">
 					<ItemButtons
 						previousPointer={chapter.previousItemPointer}
 						nextPointer={chapter.nextItemPointer}

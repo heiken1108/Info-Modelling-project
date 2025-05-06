@@ -1,0 +1,42 @@
+.main-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.chapter-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	width: 800px;
+	height: 600px;
+	border: 1px solid black;
+}
+
+.chapter-div h3 {
+	text-align: center;
+	margin: 0;
+	padding: 0.5em;
+	border-bottom: 1px solid black;
+}
+
+.chapter-description-div {
+	flex: 1;
+	padding: 1em;
+}
+
+.theme-viking {
+	font-family: 'Old Norse', serif;
+}
+
+.theme-nature {
+}
+
+.theme-nordic-style {
+	font-family: 'Brush Script MT', cursive;
+}
+
+.theme-scandi-minimal {
+	font-family: 'Brush Script MT', cursive;
+}

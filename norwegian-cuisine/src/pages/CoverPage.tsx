@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Narrative } from '../lib/types';
+import '../styling/CoverPage.css';
 
 function CoverPage() {
 	const [narrative, setNarratives] = useState<Narrative[]>([]);
@@ -34,7 +35,7 @@ function CoverPage() {
 
 	return (
 		<>
-			<div>
+			<div className="main-div">
 				<h1>Nordic Bites</h1>
 				<p>
 					Welcome to Nordic Bites, an exhibition of different dishes
@@ -50,11 +51,9 @@ function CoverPage() {
 				{narrative && narrative.length > 0 && (
 					<div>
 						{narrative.map((narrative) => (
-							<button>
-								<a href={`/narrative/${narrative._id}`}>
-									{narrative.title}
-								</a>
-							</button>
+							<a href={`/narrative/${narrative._id}`}>
+								{narrative.title}
+							</a>
 						))}
 					</div>
 				)}

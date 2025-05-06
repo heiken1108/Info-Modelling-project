@@ -8,7 +8,7 @@ function ItemButtons({
 	nextPointer: string | null;
 }) {
 	return (
-		<div>
+		<div className="nav-buttons">
 			{previousPointer && (
 				<Button
 					path={previousPointer}
@@ -16,6 +16,7 @@ function ItemButtons({
 					text={'Previous item'}
 				/>
 			)}
+			<div style={{ flex: 1 }}></div>
 			{nextPointer && (
 				<Button path={nextPointer} forward={true} text={'Next item'} />
 			)}

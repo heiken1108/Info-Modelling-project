@@ -5,29 +5,16 @@
 	width: 100vw;
 }
 .information-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;  /* Ensure text starts from the top */
-    align-items: flex-start;      /* Align the text to the left */
-    margin: 20px;
-    width: 35%;
-    max-height: 300px;            /* Set the maximum height to 300px */
-    overflow-y: auto;             /* Enable scrolling when content exceeds max-height */
-    padding-right: 10px;          /* Optional: Ensure text doesn't touch the right edge */
-    scroll-padding-top: 10px;     /* Optional: Adjust padding for better scrolling */
-}
-
-.nav-buttons {
 	display: flex;
-	justify-content: center;
-	width: 100%;
-	margin-top: 1em;
-}
-.chapter-buttons{
-	display: flex;
-	justify-content:space-between;
-	width: 100%;
-	margin: 0 1em;
+	flex-direction: column;
+	justify-content: flex-start; /* Ensure text starts from the top */
+	align-items: flex-start; /* Align the text to the left */
+	margin: 20px;
+	width: 35%;
+	max-height: 300px; /* Set the maximum height to 300px */
+	overflow-y: auto; /* Enable scrolling when content exceeds max-height */
+	padding-right: 10px; /* Optional: Ensure text doesn't touch the right edge */
+	scroll-padding-top: 10px; /* Optional: Adjust padding for better scrolling */
 }
 
 .button-container {
