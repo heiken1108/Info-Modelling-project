@@ -9,6 +9,9 @@ function Header() {
 			<nav className="navigation">
 				<ul>
 					<li>
+						<a href="/map">Map</a>
+					</li>
+					<li>
 						<a href="/about">About</a>
 					</li>
 					<li>

@@ -180,6 +180,10 @@ function ItemPage() {
 											<th>File name</th>
 											<td>{item.fileName}</td>
 										</tr>
+										<tr>
+											<th>Image source</th>
+											<td>{item.imageUrl}</td>
+										</tr>
 									</tbody>
 								</table>
 								{item.qrCode && (

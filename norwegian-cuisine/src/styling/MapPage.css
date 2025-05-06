@@ -1,0 +1,50 @@
+.main-div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.museum-map {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); /* 3 columns */
+	grid-template-rows: repeat(2, 1fr); /* 2 rows */
+	gap: 10px; /* Even spacing between rooms */
+	width: 100%;
+	height: 100%;
+}
+
+.room {
+	border: 2px solid #333;
+	background-color: #f4f4f4;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.room h3 {
+	margin: 0;
+	font-size: 1rem;
+	text-align: center;
+}
+
+.room ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.room li {
+	padding: 4px;
+	text-align: center;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

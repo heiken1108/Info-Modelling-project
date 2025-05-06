@@ -12,6 +12,7 @@ const CoverPage = React.lazy(() => import('./pages/CoverPage'));
 const ChapterPage = React.lazy(() => import('./pages/ChapterPage'));
 const ItemPage = React.lazy(() => import('./pages/ItemPage'));
 const DocumentationPage = React.lazy(() => import('./pages/DocumentationPage'));
+const MapPage = React.lazy(() => import('./pages/MapPage'));
 
 // Loading fallback component
 const LoadingFallback = () => <div className="loading">Loading...</div>;
@@ -47,6 +48,7 @@ function App() {
 								path="/documentation"
 								element={<DocumentationPage />}
 							/>
+							<Route path="/map" element={<MapPage />} />
 						</Routes>
 					</Suspense>
 				</main>
