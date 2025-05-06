@@ -35,6 +35,7 @@ function MapPage() {
 
 	return (
 		<div className="main-div">
+			<h1>Map of Nordic Bites</h1>
 			<div className="map-div">
 				<div className="museum-map">
 					{rooms.map(({ roomName, items }) => (
