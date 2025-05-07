@@ -62,8 +62,7 @@ function NarrativePage() {
   				  {narrative.chapters.map((chapter, index) => (
       				<div key={index}>
       				  <h2>{chapter.title}</h2>
-      				  <p>{chapter.introduction}</p>
-      				  <button onClick={() => handleClick(index)}>Start Chapter</button>
+      				  <button onClick={() => handleClick(index)}>Learn More</button>
       				</div>
 			))}
   		</div>
