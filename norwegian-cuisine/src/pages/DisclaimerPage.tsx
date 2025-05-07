@@ -118,6 +118,27 @@ function DisclaimerPage() {
 						</a>
 					</li>
 				</ul>
+				<p>Fonts are fetched from:</p>
+				<ul>
+					<li>
+						https://www.dafontfree.io/download/avenir/#google_vignette
+						https://www.dafont.com/viking.font
+						https://www.fontspace.com/stitch-warrior-demo-font-f20659
+						https://fonts.google.com/specimen/Playfair+Display
+						https://fonts.google.com/specimen/Cormorant+Garamond
+					</li>
+				</ul>
+				<p>Backgrounds are fetched from:</p>
+				<ul>
+					<li>
+						https://www.wallpapergap.com/parchment-wallpapers/
+						https://unsplash.com/photos/a-large-body-of-water-surrounded-by-mountains-0NmuPmFq4UE
+						https://www.vecteezy.com/vector-art/53388683-knitting-geometric-pattern-christmas-tree-knitting-background-for-wallpaper-card-site-fabric-wrapping-paper?autodl_token=a4d4507b12091ab3991ac3887f4330e9f97a9a6589d8249522a74fba164de5a55ff643a6af0ff02205d0ba1556b5161b5477ce9f20c18ecf9a7cdd3b116674ff
+						https://www.freepik.com/free-photo/abstract-minimal-plant-leaning-wall-front-view_12230474.htm#fromView=search&page=1&position=6&uuid=9a9693e6-a7e6-4fb6-a065-ffcfc7cdea09&query=scandinavian+minimalism
+						and extended artificially with
+						https://www.pixelcut.ai/ai-image-editor?tool=uncrop
+					</li>
+				</ul>
 				<p>
 					All copyrights and related rights on the content remain with
 					their original owners.

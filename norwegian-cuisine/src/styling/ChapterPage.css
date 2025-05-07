@@ -18,25 +18,93 @@
 	text-align: center;
 	margin: 0;
 	padding: 0.5em;
-	border-bottom: 1px solid black;
+	//border-bottom: 1px solid black;
 }
 
 .chapter-description-div {
 	flex: 1;
 	padding: 1em;
+	overflow-y: auto;
+	scroll-padding-top: 10px;
 }
 
 .theme-viking {
-	font-family: 'Old Norse', serif;
+	font-family: 'Viking', serif;
+	background-image: url('../assets/backgrounds/Parchment-light.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.theme-viking .chapter-div {
+	border: 4px solid #3a3a3a;
+	border-image: linear-gradient(, #4b4b4b, #1f1f1f, #4b4b4b) 1;
+	border-radius: 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .theme-nature {
+	font-family: 'Nature-Playfair-Italic', serif;
+	background-image: url('../assets/backgrounds/Senja-nature.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.theme-nature .chapter-div {
+	border: 6px solid transparent;
+	border-image: linear-gradient(to right, #6b7d6a, #a4b0a2, #d5dcd6) 1;
+	border-radius: 0;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .theme-nordic-style {
-	font-family: 'Brush Script MT', cursive;
+	font-family: 'Nordic', serif;
+	background-image: url('../assets/backgrounds/Knit-background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	color: white;
+}
+
+.theme-nordic-style .chapter-div {
+	border: 5px solid transparent;
+
+	border-image: repeating-linear-gradient(
+			45deg,
+			#ffffff,
+			#ffffff 2px,
+			#0033a0 2px,
+			#0033a0 4px,
+			#c8102e 4px,
+			#c8102e 6px
+		)
+		20;
 }
 
 .theme-scandi-minimal {
-	font-family: 'Brush Script MT', cursive;
+	font-family: 'Scandi-Light', serif;
+	background-image: url('../assets/backgrounds/Extended-scandi-minimal-2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.theme-scandi-minimal .chapter-div {
+	border: 2px solid white;
+	padding: 20px;
+	background-image: linear-gradient(white, lightgray),
+		repeating-linear-gradient(
+			to left,
+			#ccc,
+			#ccc 1px,
+			transparent 1px,
+			transparent 8px
+		);
+	background-origin: padding-box, border-box;
+	background-clip: padding-box, border-box;
 }
