@@ -1,7 +1,8 @@
+import '../styling/HeaderPages.css'
 function DocumentationPage() {
 	return (
 		<>
-			<div>
+			<div className='main-div'>
 				<h1>Documentation</h1>
 				<h2>Architecture</h2>
 				<h3>Frontend</h3>

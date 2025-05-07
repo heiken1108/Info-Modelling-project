@@ -1,8 +1,28 @@
 .main-div {
-	padding: 1em;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding:0;
+	position: relative;
+	
 }
-
 .main-div h1 {
 	font-size: 3.2em;
 	text-align: center;
+}
+.introduction-container{
+	width: 60%;
+	display: flex;
+	justify-content: center;
+}
+
+.narrative-item {
+	font-size: 1.5em;
+	padding: 10px;
+	color: black;
+	text-decoration: none;
+}
+
+.narrative-item:hover {
+	text-decoration: underline;
 }
