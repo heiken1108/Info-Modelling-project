@@ -77,6 +77,9 @@ function ItemPage() {
 					previousItemPointer: data.previousItemPointer,
 					nextItemPointer: data.nextItemPointer,
 					qrCode: data.imageUrl, //Heller peke på qrcode lokalt?
+					origin: data.origin,
+					flavorProfile: data.flavorProfile,
+					period: data.period,
 				};
 				setItem(item);
 			})
@@ -183,6 +186,18 @@ function ItemPage() {
 										<tr>
 											<th>Image source</th>
 											<td>{item.imageUrl}</td>
+										</tr>
+										<tr>
+											<th>Origin</th>
+											<td>{item.origin}</td>
+										</tr>
+										<tr>
+											<th>Flavor profile</th>
+											<td>{item.flavorProfile}</td>
+										</tr>
+										<tr>
+											<th>Period</th>
+											<td>{item.period}</td>
 										</tr>
 									</tbody>
 								</table>

@@ -12,6 +12,9 @@ export interface Item {
 	previousItemPointer: string;
 	nextItemPointer: string;
 	qrCode?: any;
+	origin: string;
+	flavorProfile: string;
+	period: string;
 }
 
 export interface Narrative {
