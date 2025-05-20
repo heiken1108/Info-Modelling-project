@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Narrative } from '../lib/types';
+import '../styling/NarrativePage.css';
 
 function NarrativePage() {
 	const navigate = useNavigate();
@@ -56,15 +57,16 @@ function NarrativePage() {
 				Explore the chapters to learn more about different aspects of
 				Norwegian cuisine.
 			</p>
-			{narrative.chapters.map((chapter, index) => (
-				<div key={index}>
-					<h2>{chapter.title}</h2>
-					<p>{chapter.introduction}</p>
-					<button onClick={() => handleClick(index)}>
-						Start Chapter
-					</button>
-				</div>
+			{narrative.chapters && (
+  				<div className="chapter-containers">
+  				  {narrative.chapters.map((chapter, index) => (
+      				<div key={index}>
+      				  <h2>{chapter.title}</h2>
+      				  <button onClick={() => handleClick(index)}>Learn More</button>
+      				</div>
 			))}
+  		</div>
+		)}
 		</div>
 	);
 }

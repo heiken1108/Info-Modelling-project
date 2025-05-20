@@ -1,7 +1,8 @@
+import '../styling/HeaderPages.css'
 function AboutPage() {
 	return (
 		<>
-			<div>
+			<div className='main-div'>
 				<h1>About group "Grandiosa"</h1>
 				<p>
 					This group consists of two members, Elena Willmann and Håkon

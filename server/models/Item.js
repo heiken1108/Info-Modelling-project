@@ -33,6 +33,18 @@ export const ItemSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	origin: {
+		type: String,
+		required: true,
+	},
+	flavorProfile: {
+		type: String,
+		required: true,
+	},
+	period: {
+		type: String,
+		required: true,
+	},
 });
 
 const ItemModel = mongoose.model('Items', ItemSchema);
