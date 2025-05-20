@@ -26,7 +26,7 @@ function DisclaimerPage() {
 					corresponding foods are as follows:
 				</p>
 				<ul>
-					{/* TODO: Endre til å fetch fra databasen istedet */}
+					{/* TODO: Endre til å fetch fra databasen istedet  */}
 					<li>
 						Brunost (Brown cheese):
 						<a href="https://lokalhistoriewiki.no/Brunost">
