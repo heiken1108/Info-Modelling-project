@@ -18,25 +18,12 @@
 	text-align: center;
 	margin: 0;
 	padding: 0.5em;
-	border-bottom: 1px solid black;
+	//border-bottom: 1px solid black;
 }
 
 .chapter-description-div {
 	flex: 1;
 	padding: 1em;
-}
-
-.theme-viking {
-	font-family: 'Old Norse', serif;
-}
-
-.theme-nature {
-}
-
-.theme-nordic-style {
-	font-family: 'Brush Script MT', cursive;
-}
-
-.theme-scandi-minimal {
-	font-family: 'Brush Script MT', cursive;
+	overflow-y: auto;
+	scroll-padding-top: 10px;
 }

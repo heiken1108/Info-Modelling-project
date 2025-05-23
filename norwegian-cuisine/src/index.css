@@ -88,3 +88,87 @@ body {
 	width: 100%;
 }
 
+.theme-viking {
+	font-family: 'Viking', serif;
+	background-image: url('assets/backgrounds/Parchment-light.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	line-height: 1.5; /*TODO: Add in documentation that the choice for this was that the text was so big in original form*/
+	font-size: 0.9em; /*TODO: This as well*/
+}
+
+.theme-viking > div {
+	border: 4px solid #3a3a3a;
+	border-image: linear-gradient(, #4b4b4b, #1f1f1f, #4b4b4b) 1;
+	border-radius: 0;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+}
+
+.theme-nature {
+	font-family: 'Nature-Playfair-Italic', serif;
+	background-image: url('assets/backgrounds/Senja-nature.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.theme-nature > div {
+	border: 6px solid transparent;
+	border-image: linear-gradient(to right, #6b7d6a, #a4b0a2, #d5dcd6) 1;
+	border-radius: 0;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.theme-nordic-style {
+	font-family: 'Nordic', serif;
+	background-image: url('assets/backgrounds/Knit-background.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+	color: black;
+}
+
+.theme-nordic-style > div {
+	border: 5px solid transparent;
+
+	border-image: repeating-linear-gradient(
+			45deg,
+			#ffffff,
+			#ffffff 2px,
+			#0033a0 2px,
+			#0033a0 4px,
+			#c8102e 4px,
+			#c8102e 6px
+		)
+		20;
+	background-color: rgba(255, 255, 255, 0.8);
+}
+
+.theme-scandi-minimal {
+	font-family: 'Scandi-Light', serif;
+	background-image: url('assets/backgrounds/Extended-scandi-minimal-2.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.theme-scandi-minimal > div {
+	border: 2px solid white;
+	padding: 20px;
+	background-image: linear-gradient(white, lightgray),
+		repeating-linear-gradient(
+			to left,
+			#ccc,
+			#ccc 1px,
+			transparent 1px,
+			transparent 8px
+		);
+	background-origin: padding-box, border-box;
+	background-clip: padding-box, border-box;
+}

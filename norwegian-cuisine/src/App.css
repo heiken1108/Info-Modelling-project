@@ -38,3 +38,59 @@ button {
 	width: 100%;
 	height: 100%;
 }
+
+@font-face {
+	font-family: 'Viking';
+	src: url('./assets/fonts/Viking-Normal.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nature-Playfair-Regular';
+	src: url('./assets/fonts/PlayfairDisplay-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nature-Playfair-Italic';
+	src: url('./assets/fonts/PlayfairDisplay-Italic.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nature-Cormorant-Regular';
+	src: url('./assets/fonts/CormorantGaramond-Light.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nature-Cormorant-Italic';
+	src: url('./assets/fonts/CormorantGaramond-LightItalic.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Nordic';
+	src: url('./assets/fonts/StitchWarrior.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Scandi-Book';
+	src: url('./assets/fonts/AvenirLTStd-Book.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Scandi-Light';
+	src: url('./assets/fonts/AvenirLTStd-Light.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}

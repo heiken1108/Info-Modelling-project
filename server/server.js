@@ -279,6 +279,7 @@ app.get(
 				previousItemPointer,
 				nextItemPointer,
 				fileName: item.fileName,
+				qrCode: item.qrCode,
 				origin: item.origin,
 				flavorProfile: item.flavorProfile,
 				period: item.period,
