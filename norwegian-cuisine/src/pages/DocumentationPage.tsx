@@ -2,7 +2,7 @@ import '../styling/HeaderPages.css'
 function DocumentationPage() {
 	return (
 		<>
-			<div className='main-div'>
+			<div className="main-div-header-pages">
 				<h1>Documentation</h1>
 				<h2>Architecture</h2>
 				<h3>Frontend</h3>

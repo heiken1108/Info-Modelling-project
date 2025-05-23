@@ -33,6 +33,10 @@ export const ItemSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
+	qrCode: {
+		type: String,
+		required: true,
+	},
 	origin: {
 		type: String,
 		required: true,

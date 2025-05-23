@@ -2,7 +2,7 @@ import '../styling/HeaderPages.css'
 function DisclaimerPage() {
 	return (
 		<>
-			<div className='main-div'>
+			<div className="main-div-header-pages">
 				<h1>Disclaimer</h1>
 				<p>
 					The purpose of this web site is to explore various types of

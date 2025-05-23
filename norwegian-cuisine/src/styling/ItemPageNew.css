@@ -91,8 +91,7 @@
 .item-content-description-div {
 	flex: 1;
 	height: 100%;
-	max-height: 398px; // Satt slik fordi det ikke funker med scrolling uten max-height ser det ut som
-	background-color: blue;
+	max-height: 398px; /* Satt slik fordi det ikke funker med scrolling uten max-height ser det ut som*/
 	display: flex;
 	flex-direction: column;
 }
@@ -112,6 +111,30 @@
 .item-content-description-buttons-div {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-evenly;
-	padding: 0.5em;
+	gap: 1em;
+	padding-top: 10px;
+}
+
+.item-content-description-buttons-div > div {
+	flex: 1;
+	display: flex;
+	flex-direction: row;
+}
+
+.item-content-description-buttons-div > div > div {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.item-content-description-buttons-div button {
+	font-size: 0.7em; /*Is the right size to not take up too much space*/
+}
+
+.item-content-description-buttons-div button:disabled {
+	background-color: #ccc;
+	color: #666;
+	cursor: default;
+	opacity: 0.6;
 }

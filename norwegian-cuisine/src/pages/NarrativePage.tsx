@@ -58,15 +58,17 @@ function NarrativePage() {
 				Norwegian cuisine.
 			</p>
 			{narrative.chapters && (
-  				<div className="chapter-containers">
-  				  {narrative.chapters.map((chapter, index) => (
-      				<div key={index}>
-      				  <h2>{chapter.title}</h2>
-      				  <button onClick={() => handleClick(index)}>Learn More</button>
-      				</div>
-			))}
-  		</div>
-		)}
+				<div className="chapter-containers">
+					{narrative.chapters.map((chapter, index) => (
+						<div key={index}>
+							<h2>{chapter.title}</h2>
+							<button onClick={() => handleClick(index)}>
+								Learn More
+							</button>
+						</div>
+					))}
+				</div>
+			)}
 		</div>
 	);
 }
