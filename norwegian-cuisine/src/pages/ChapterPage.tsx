@@ -11,9 +11,9 @@ function ChapterPage() {
 		chapterIndex: string;
 	}>();
 	const [chapter, setChapter] = useState<Chapter>();
-	const [theme, setTheme] = useState<string>('viking');
+	const [theme, setTheme] = useState<string>('nothing');
 	useEffect(() => {
-		const savedTheme = localStorage.getItem('theme') || 'viking';
+		const savedTheme = localStorage.getItem('theme') || 'nothing';
 		setTheme(savedTheme);
 	}, []);
 

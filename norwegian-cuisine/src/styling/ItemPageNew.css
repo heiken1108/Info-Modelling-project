@@ -10,7 +10,7 @@
 	flex-direction: column;
 	justify-content: start;
 	width: 800px;
-	height: 600px;
+	height: 500px;
 	border: 1px solid black;
 }
 
@@ -31,7 +31,7 @@
 
 .item-content-img-div {
 	height: 100%;
-	width: 350px;
+	width: 300px;
 	position: relative;
 }
 
@@ -91,7 +91,7 @@
 .item-content-description-div {
 	flex: 1;
 	height: 100%;
-	max-height: 398px; /* Satt slik fordi det ikke funker med scrolling uten max-height ser det ut som*/
+	max-height: 290px; /* Satt slik fordi det ikke funker med scrolling uten max-height ser det ut som*/
 	display: flex;
 	flex-direction: column;
 }
@@ -111,8 +111,10 @@
 .item-content-description-buttons-div {
 	display: flex;
 	flex-direction: row;
-	gap: 1em;
+	justify-content: space-between;
 	padding-top: 10px;
+	gap: 2em;
+	
 }
 
 .item-content-description-buttons-div > div {

@@ -16,9 +16,9 @@ function ItemPage() {
 		itemId: string;
 	}>();
 	const [item, setItem] = useState<Item>();
-	const [theme, setTheme] = useState<string>('viking');
+	const [theme, setTheme] = useState<string>('nothing');
 	useEffect(() => {
-		const savedTheme = localStorage.getItem('theme') || 'viking';
+		const savedTheme = localStorage.getItem('theme') || 'nothing';
 		setTheme(savedTheme);
 	}, []);
 	const [visibleLevel, setVisibleLevel] = useState(0);
@@ -125,6 +125,7 @@ function ItemPage() {
 							</button>
 						</div>
 						{!metaToggle && <img src={imageSrc} alt={item.name} />}
+						
 						{metaToggle && (
 							<div className="item-content-img-meta-div">
 								<h3>Metadata</h3>
@@ -156,6 +157,7 @@ function ItemPage() {
 							</div>
 						)}
 					</div>
+			
 					<div className="item-content-description-div">
 						<div className="item-content-description-text-div">
 							<p>
@@ -171,6 +173,7 @@ function ItemPage() {
 									))}
 							</p>
 						</div>
+						
 						<div className="item-content-description-buttons-div">
 							<div>
 								<div>
@@ -200,6 +203,7 @@ function ItemPage() {
 										onClick={() =>
 											handleInformationLevelClick(false)
 										}
+										disabled={itemLevel == 0}
 									>
 										Less difficult
 									</button>
@@ -209,6 +213,7 @@ function ItemPage() {
 										onClick={() =>
 											handleInformationLevelClick(true)
 										}
+										disabled={itemLevel == 2}
 									>
 										More difficult
 									</button>

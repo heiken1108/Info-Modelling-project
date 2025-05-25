@@ -1,4 +1,4 @@
-const themes = ['viking', 'nature', 'nordic-style', 'scandi-minimal'];
+const themes = ['viking', 'nature', 'nordic-style', 'scandi-minimal', 'nothing'];
 import './ThemeSelector.css';
 
 function ThemeSelector() {
@@ -7,7 +7,7 @@ function ThemeSelector() {
 		window.location.reload();
 	};
 
-	const savedTheme = localStorage.getItem('theme') || 'viking';
+	const savedTheme = localStorage.getItem('theme') || 'nothing';
 
 	return (
 		<div className="theme-selector">
