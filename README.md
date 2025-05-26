@@ -12,7 +12,7 @@ Open a new terminal
 
 ```
 
-cd norwegian-foods
+cd norwegian-cuisine
 npm install
 npm run dev
 ```
