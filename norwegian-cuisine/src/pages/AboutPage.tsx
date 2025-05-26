@@ -21,11 +21,11 @@ function AboutPage() {
 					When working on the project, the main idea was to work as much as possible together. 
 					This was to ensure both team members were present when making choices about the project.
 					However, due to different schedules, this was not always possible.
-					Tthey also wanted to ensure that both team members had the opportunity to work 
-					on the parts of the project they were most interested in, and this could be done sepearately.
+					They also wanted to ensure that both team members had the opportunity to work 
+					on the parts of the project they were most interested in, and this could be done separately.
 					So for the project, the separation of work is mostly divided at
-					the border between frontend and backend. However, there is a
-					little overlap. The contributions are as follows:
+					the border between frontend and backend. However, there is 
+					overlap. The contributions are as follows:
 				</p>
 				<ul>
 					<li>
@@ -39,6 +39,8 @@ function AboutPage() {
 							<li>Narratives</li>
 							<li>Information about the chapters</li>
 						</ul>
+					</li>
+					<li>
 						Håkon Hoelsæter: <br />
 						<ul>
 							<li>Backend</li>
