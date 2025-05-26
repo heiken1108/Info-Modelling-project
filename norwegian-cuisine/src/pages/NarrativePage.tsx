@@ -48,13 +48,9 @@ function NarrativePage() {
 
 	return (
 		<div className="narrative-page">
-			<h1>Welcome to the Norwegian Cuisine Narrative</h1>
+			<h1>Welcome to the {narrative.title} Narrative</h1>
 			<p>
-				This narrative will take you through the rich and diverse
-				culinary traditions of Norway.
-			</p>
-			<p>
-				Explore the chapters to learn more about different aspects of
+				{narrative.description} Explore the chapters to learn more about different aspects of
 				Norwegian cuisine.
 			</p>
 			{narrative.chapters && (
