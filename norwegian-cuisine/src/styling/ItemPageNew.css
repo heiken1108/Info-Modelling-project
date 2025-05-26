@@ -47,6 +47,7 @@
 	padding: 0.5em;
 	padding-bottom: 1em;
 	text-align: center;
+	overflow-y: scroll;
 }
 
 .item-content-img-meta-toggle-div button,
@@ -114,7 +115,6 @@
 	justify-content: space-between;
 	padding-top: 10px;
 	gap: 2em;
-	
 }
 
 .item-content-description-buttons-div > div {
@@ -139,4 +139,21 @@
 	color: #666;
 	cursor: default;
 	opacity: 0.6;
+}
+
+.metadata-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.metadata-table tr {
+	border-bottom: 1px solid #ccc;
+}
+.metadata-table tr:last-child {
+	border-bottom: none;
+}
+.metadata-table th,
+.metadata-table td {
+	padding: 2px;
+	text-align: left;
 }

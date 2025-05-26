@@ -116,7 +116,9 @@ function ItemPage() {
 	return (
 		<div className={`main-div theme-${theme}`}>
 			<div className="item-div">
-				<h3 className="item-title">{item.name}</h3>
+				<h3 className="item-title">
+					{item.name} ({item.translation})
+				</h3>
 				<div className="item-content-div">
 					<div className="item-content-img-div">
 						<div className="item-content-img-meta-toggle-div">
@@ -125,11 +127,11 @@ function ItemPage() {
 							</button>
 						</div>
 						{!metaToggle && <img src={imageSrc} alt={item.name} />}
-						
+
 						{metaToggle && (
 							<div className="item-content-img-meta-div">
 								<h3>Metadata</h3>
-								<table>
+								<table className="metadata-table">
 									<tbody>
 										<tr>
 											<th>Origin</th>
@@ -157,7 +159,7 @@ function ItemPage() {
 							</div>
 						)}
 					</div>
-			
+
 					<div className="item-content-description-div">
 						<div className="item-content-description-text-div">
 							<p>
@@ -173,7 +175,7 @@ function ItemPage() {
 									))}
 							</p>
 						</div>
-						
+
 						<div className="item-content-description-buttons-div">
 							<div>
 								<div>
