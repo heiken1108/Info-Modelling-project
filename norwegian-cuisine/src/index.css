@@ -95,8 +95,8 @@ body {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
-	line-height: 1.5; /*TODO: Add in documentation that the choice for this was that the text was so big in original form*/
-	font-size: 0.9em; /*TODO: This as well*/
+	line-height: 1.5;
+	font-size: 0.9em;
 }
 
 .theme-viking > div {
@@ -159,7 +159,7 @@ body {
 }
 
 .theme-scandi-minimal > div {
-	border: 2px solid white;
+	border: 1px solid white;
 	padding: 20px;
 	background-image: linear-gradient(white, lightgray),
 		repeating-linear-gradient(
@@ -172,4 +172,3 @@ body {
 	background-origin: padding-box, border-box;
 	background-clip: padding-box, border-box;
 }
-

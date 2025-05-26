@@ -17,7 +17,7 @@ main {
 }
 
 .theme-selector-div {
-	position: absolute;
+	position: fixed;
 	bottom: 1rem;
 	right: 1rem;
 }
