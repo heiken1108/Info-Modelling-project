@@ -333,6 +333,13 @@ function DocumentationPage() {
 					aesthetic is continued in the sleek font, while the border
 					is also overly slim, focusing on being quiet but functional.
 				</p>
+				<h3>3.3 Other</h3>
+				<p>
+					When loading content from the database, the application
+					briefly renders a loading animation. This source code is
+					copied from an older project and was originally generated
+					with ChatGPT.
+				</p>
 			</div>
 		</>
 	);

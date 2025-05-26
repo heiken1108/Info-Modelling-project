@@ -8,6 +8,7 @@ import ItemButtons from '../components/NavigationButtons/ItemButtons';
 import getImageByFileName from '../utils/imageLoader';
 import { InfoOutline, QrCode } from '@mui/icons-material';
 import QRCode from 'qrcode';
+import LoadingAnimation from '../components/Loading/LoadingAnimation';
 
 function ItemPage() {
 	const { narrativeId, chapterIndex, itemId } = useParams<{
@@ -106,7 +107,7 @@ function ItemPage() {
 	}, [item?.qrCode]);
 
 	if (!item) {
-		return <div>Loading item...</div>;
+		return <LoadingAnimation />;
 	}
 	const imageSrc = getImageByFileName(item.fileName);
 	if (!imageSrc) {

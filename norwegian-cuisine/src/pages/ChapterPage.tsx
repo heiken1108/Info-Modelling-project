@@ -4,6 +4,7 @@ import { Chapter } from '../lib/types';
 import '../styling/ChapterPage.css';
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
+import LoadingAnimation from '../components/Loading/LoadingAnimation';
 
 function ChapterPage() {
 	const { narrativeId, chapterIndex } = useParams<{
@@ -44,7 +45,7 @@ function ChapterPage() {
 	}, [chapterIndex]);
 
 	if (!chapter) {
-		return <div>Loading chapter...</div>;
+		return <LoadingAnimation />;
 	}
 
 	return (
