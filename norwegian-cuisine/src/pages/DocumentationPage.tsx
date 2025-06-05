@@ -96,7 +96,7 @@ function DocumentationPage() {
 					simplicity, we have created both the server and the API
 					endpoints in the same file.
 				</p>
-				<p>There are four main endpoints:</p>
+				<p>There are four main endpoints in the API:</p>
 				<ul>
 					<li>
 						One for getting all narratives, used by the cover page
@@ -163,16 +163,16 @@ function DocumentationPage() {
 					a clear separation between the primary pages and the
 					auxiliary pages. By primary pages, we refer to pages
 					providing the actual content the website was intended for,
-					i.e. the Narrative, Chapter, and Item pages.
+					i.e. the Chapter and Item pages.
 				</p>
 				<p>
 					The auxiliary pages refer to the "other" pages, such as
 					providing a description of the application, the imaginary
-					map for a museum, and other explanatory pages. With this in
-					mind, only the primary pages have proper styling, while the
-					auxiliary pages have a more "sterile," basic look. The
-					primary pages are also the only ones affected by the choice
-					of theme.
+					map for a museum, and other explanatory or navigatory pages.
+					With this in mind, only the primary pages have proper
+					styling, while the auxiliary pages have a more "sterile,"
+					basic look. The primary pages are also the only ones
+					affected by the choice of theme.
 				</p>
 
 				<h3>3.1 Base Layout</h3>
@@ -199,10 +199,10 @@ function DocumentationPage() {
 					the content. We wanted to avoid a cluttered look, so we
 					chose consistent sizes. This also influences how we
 					implemented a common layout for our themes. As a core rule,
-					we chose to use 1em as a base size to follow. This is a
-					normalized padding and font size for the web and was done to
-					create familiarity for the user and not require them to
-					adjust themselves to a new web experience.
+					we chose to have a normalized padding and font size for the
+					site and this was done to create familiarity for the user
+					and not require them to adjust themselves to a new web
+					experience.
 				</p>
 				<p>
 					For the content, we wanted the tabular view to be consistent
@@ -228,7 +228,7 @@ function DocumentationPage() {
 				<p>
 					For our themes, we want them to be clear and obvious and
 					have a large impact on the page and viewer experience, while
-					not being overly ambitious and bordering on obnoxious. We
+					not being overly ambitious and bordering onto obnoxious. We
 					retained the base layout to maintain the user experience and
 					not be too intrusive, centering our themes around a main
 					background, font, and fitting changes to the border, as
@@ -285,13 +285,14 @@ function DocumentationPage() {
 					box to increase contrast, making the text easy to read.
 				</p>
 				<p>
-					We chose an italic-like font to add to the outdoor feel of
-					the theme. This font resembles the hand-written greetings
-					you would find in books inside specific cabins located in
-					Norway. The border has a gradient created to blend more into
-					the nature background, connecting to the Norwegian mindset
-					of protecting nature from aggressive externalities, such as
-					making all constructions like buildings blend into nature.
+					We chose an italic-like font to add to the outdoor and
+					natural feel of the theme. This font resembles the
+					hand-written greetings you would find in books inside
+					specific cabins located in Norway. The border has a gradient
+					created to blend more into the nature background, connecting
+					to the Norwegian mindset of protecting nature from
+					aggressive externalities, such as making all constructions
+					like buildings blend into nature.
 				</p>
 
 				<h4>3.2.3 Nordic Style</h4>
