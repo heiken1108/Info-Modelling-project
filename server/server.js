@@ -1,10 +1,12 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
 import CuisineModel from './models/Cuisine.js';
 import ItemModel from './models/Item.js';
 import NarrativeModel from './models/Narrative.js';
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 const port = 5001;
 
