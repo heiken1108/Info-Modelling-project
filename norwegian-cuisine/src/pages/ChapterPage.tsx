@@ -19,7 +19,9 @@ function ChapterPage() {
 	}, []);
 
 	useEffect(() => {
-		fetch(`/api/narrative/${narrativeId}/chapter/${chapterIndex}`)
+		fetch(
+			`https://info-modelling-project.onrender.com/api/narrative/${narrativeId}/chapter/${chapterIndex}`
+		)
 			.then((res) => {
 				console.log(res);
 				if (!res.ok) {

@@ -59,7 +59,7 @@ function ItemPage() {
 
 	useEffect(() => {
 		fetch(
-			`/api/narrative/${narrativeId}/chapter/${chapterIndex}/item/${itemId}`
+			`https://info-modelling-project.onrender.com/api/narrative/${narrativeId}/chapter/${chapterIndex}/item/${itemId}`
 		)
 			.then((res) => {
 				console.log(res);

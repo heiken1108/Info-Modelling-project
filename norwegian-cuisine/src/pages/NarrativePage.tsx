@@ -13,7 +13,9 @@ function NarrativePage() {
 	};
 
 	useEffect(() => {
-		fetch(`/api/narrative/${narrativeId}`)
+		fetch(
+			`https://info-modelling-project.onrender.com/api/narrative/${narrativeId}`
+		)
 			.then((res) => {
 				if (!res.ok) {
 					if (res.status === 404) {
@@ -50,8 +52,8 @@ function NarrativePage() {
 		<div className="narrative-page">
 			<h1>Welcome to the {narrative.title} Narrative</h1>
 			<p>
-				{narrative.description} Explore the chapters to learn more about different aspects of
-				Norwegian cuisine.
+				{narrative.description} Explore the chapters to learn more about
+				different aspects of Norwegian cuisine.
 			</p>
 			{narrative.chapters && (
 				<div className="chapter-containers">
