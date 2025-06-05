@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Item } from '../lib/types';
 import { use, useEffect, useState } from 'react';
-import '../styling/ItemPageNew.css';
+import '../styling/ItemPage.css';
 
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
