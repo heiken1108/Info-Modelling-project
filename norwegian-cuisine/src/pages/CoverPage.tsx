@@ -6,7 +6,7 @@ function CoverPage() {
 	const [narrative, setNarratives] = useState<Narrative[]>([]);
 
 	useEffect(() => {
-		fetch('https://info-modelling-project.onrender.com/api/narrative')
+		fetch('/api/narrative')
 			.then((res) => {
 				if (!res.ok) {
 					if (res.status === 404) {
