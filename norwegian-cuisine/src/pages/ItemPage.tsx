@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 import { Item } from '../lib/types';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styling/ItemPage.css';
 
 import ChapterButtons from '../components/NavigationButtons/ChapterButtons';
 import ItemButtons from '../components/NavigationButtons/ItemButtons';
 import getImageByFileName from '../utils/imageLoader';
-import { InfoOutline, QrCode } from '@mui/icons-material';
+import { InfoOutline } from '@mui/icons-material';
 import QRCode from 'qrcode';
 import LoadingAnimation from '../components/Loading/LoadingAnimation';
 
@@ -171,7 +171,7 @@ function ItemPage() {
 										informationLevels[itemLevel].slice(1)
 								]
 									?.slice(0, visibleLevel + 1)
-									.map((desc, idx) => (
+									.map((desc) => (
 										<> {desc}</>
 									))}
 							</p>
